@@ -9,13 +9,153 @@
   "tilewidth": 32,
   "tileheight": 32,
   "infinite": false,
-  "nextlayerid": 102,
-  "nextobjectid": 21,
+  "nextlayerid": 104,
+  "nextobjectid": 23,
   "backgroundcolor": "#8bbf83",
   "tilesets": [
     {
-      "firstgid": 1,
-      "source": "river_security_tileset.tsj"
+      "type": "tileset",
+      "version": "1.10",
+      "name": "river_security_tileset",
+      "tilewidth": 32,
+      "tileheight": 32,
+      "spacing": 0,
+      "margin": 0,
+      "columns": 8,
+      "tilecount": 32,
+      "image": "river_security_tileset.png",
+      "imagewidth": 256,
+      "imageheight": 128,
+      "tiles": [
+        {
+          "id": 0,
+          "type": "grass"
+        },
+        {
+          "id": 1,
+          "type": "light_stone"
+        },
+        {
+          "id": 2,
+          "type": "dark_stone"
+        },
+        {
+          "id": 3,
+          "type": "water"
+        },
+        {
+          "id": 4,
+          "type": "deep_water"
+        },
+        {
+          "id": 5,
+          "type": "bridge"
+        },
+        {
+          "id": 6,
+          "type": "wood_deck"
+        },
+        {
+          "id": 7,
+          "type": "wall"
+        },
+        {
+          "id": 8,
+          "type": "glass"
+        },
+        {
+          "id": 9,
+          "type": "hedge"
+        },
+        {
+          "id": 10,
+          "type": "tree",
+          "properties": [
+            {
+              "name": "collides",
+              "type": "bool",
+              "value": true
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "type": "planter"
+        },
+        {
+          "id": 12,
+          "type": "bench"
+        },
+        {
+          "id": 13,
+          "type": "table"
+        },
+        {
+          "id": 14,
+          "type": "screen"
+        },
+        {
+          "id": 15,
+          "type": "sign"
+        },
+        {
+          "id": 16,
+          "type": "red_marker"
+        },
+        {
+          "id": 17,
+          "type": "river_logo"
+        },
+        {
+          "id": 18,
+          "type": "road"
+        },
+        {
+          "id": 19,
+          "type": "fence"
+        },
+        {
+          "id": 20,
+          "type": "sand"
+        },
+        {
+          "id": 21,
+          "type": "dark_floor"
+        },
+        {
+          "id": 22,
+          "type": "light_floor"
+        },
+        {
+          "id": 23,
+          "type": "stairs"
+        },
+        {
+          "id": 24,
+          "type": "flowers"
+        },
+        {
+          "id": 25,
+          "type": "lamp"
+        },
+        {
+          "id": 26,
+          "type": "chair_blue"
+        },
+        {
+          "id": 27,
+          "type": "chair_red"
+        },
+        {
+          "id": 28,
+          "type": "monitor_desk"
+        },
+        {
+          "id": 29,
+          "type": "fountain"
+        }
+      ],
+      "firstgid": 1
     }
   ],
   "layers": [
@@ -56613,6 +56753,51 @@
               "value": true
             }
           ]
+        }
+      ]
+    },
+    {
+      "id": 102,
+      "name": "floorLayer",
+      "type": "objectgroup",
+      "visible": true,
+      "opacity": 1,
+      "x": 0,
+      "y": 0,
+      "draworder": "topdown",
+      "objects": [
+        {
+          "id": 21,
+          "name": "mainWalkableCampus",
+          "type": "floor",
+          "x": 0,
+          "y": 0,
+          "width": 3200,
+          "height": 2240,
+          "rotation": 0,
+          "visible": true
+        }
+      ]
+    },
+    {
+      "id": 103,
+      "name": "start",
+      "type": "objectgroup",
+      "visible": true,
+      "opacity": 1,
+      "x": 0,
+      "y": 0,
+      "draworder": "topdown",
+      "objects": [
+        {
+          "id": 22,
+          "name": "start",
+          "type": "start",
+          "point": true,
+          "x": 1600,
+          "y": 1984,
+          "rotation": 0,
+          "visible": true
         }
       ]
     }
