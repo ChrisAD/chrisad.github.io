@@ -27,7 +27,7 @@ Built with [Astro](https://astro.build), deployed to GitHub Pages via GitHub Act
    git add . && git commit -m "post: my post" && git push
    ```
 
-3. Live on https://chrisdale.no in about a minute. The filename becomes the URL: `my-post.md` → `/posts/my-post/`.
+3. Live on https://chrisad.github.io in about a minute. The filename becomes the URL: `my-post.md` → `/posts/my-post/`.
 
 Images: drop them in `public/img/` and reference as `![alt](/img/name.png)`.
 
@@ -73,17 +73,3 @@ The talks & media list was seeded from into.bio/chrisdale plus public search res
 - `automating-asm.md`: podcast name unknown, event says "Podcast, episode 76"
 - `day-in-life-incident-responder.md`, `qa-security-testing.md`, `help-to-self-help.md`: venue unknown, event says "Presentation"
 - `improving-penetration-tradecraft.md`: links to a SANS Zoom recording that may expire; the slides PDF is the stable link
-
-## DNS setup (one-time, manual)
-
-chrisdale.no currently points at into.bio. At the registrar, replace those records with:
-
-| Type  | Name | Value               |
-| ----- | ---- | ------------------- |
-| A     | @    | 185.199.108.153     |
-| A     | @    | 185.199.109.153     |
-| A     | @    | 185.199.110.153     |
-| A     | @    | 185.199.111.153     |
-| CNAME | www  | chrisad.github.io   |
-
-Then in the GitHub repo → Settings → Pages, confirm the custom domain shows `chrisdale.no` and tick **Enforce HTTPS** once the certificate has been issued (can take up to an hour after DNS propagates).
