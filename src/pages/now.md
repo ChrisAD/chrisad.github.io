@@ -9,18 +9,17 @@ A snapshot of what I'm focused on right now. Inspired by [nownownow.com](https:/
 
 ## Working on
 
-- Running offensive operations and attack surface management at [River Security](https://riversecurity.eu/).
-- Teaching [SEC504](https://www.sans.org/profiles/chris-dale) for SANS.
+- Integrating AI into continuous penetration testing at [River Security](https://riversecurity.eu/).
+- Writing a sponsored paper on AI hacking for [Horizon3's NodeZero](https://horizon3.ai/) product.
 
-## Thinking about
+## Teaching
 
-- Continuous penetration testing and the offensive SOC.
-- Making this site a proper home for my writing again.
+- **Copenhagen** in August
+- **Amsterdam** in September
+- **London** later in the year
 
-## Recently
-
-- Coached Singapore's HTX teams to top-5 finishes at DEF CON 32.
+See [talks & media](/talks/) for past events, or my [SANS profile](https://www.sans.org/profiles/chris-dale) for the current course schedule.
 
 ---
 
-*This is a [now page](https://nownownow.com/about). To update it, edit `src/content`... actually just edit `src/pages/now.md` and push.*
+*This is a [now page](https://nownownow.com/about). To update it, edit `src/pages/now.md` and push.*

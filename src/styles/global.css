@@ -97,7 +97,10 @@ h2 {
 
 .site-nav {
   display: flex;
-  gap: 0.9rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem 0.9rem;
 }
 
 .site-nav a {
