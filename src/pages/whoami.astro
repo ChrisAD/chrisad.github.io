@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+
+const certs = ['GCIH', 'GPEN', 'GX-PT', 'GCFA', 'GCTI', 'GSLC', 'GMOB'];
+---
+
+<Base title="whoami" description="Who is Chris Dale: co-founder & Chief Hacking Officer at River Security, SANS Principal Instructor.">
+  <section class="term">
+    <p class="term-line"><span class="prompt">chris@riversec</span>:<span class="path">~</span>$ whoami</p>
+    <p class="term-out">chris dale</p>
+
+    <p class="term-line"><span class="prompt">chris@riversec</span>:<span class="path">~</span>$ cat about.txt</p>
+    <div class="term-out">
+      <p>
+        Co-founder and Chief Hacking Officer at
+        <a href="https://riversecurity.eu/">River Security</a>, where we help
+        organizations reduce risk through offensive security, attack surface
+        management, and incident response.
+      </p>
+      <p>
+        Principal Instructor at <a href="https://www.sans.org/profiles/chris-dale">SANS</a>,
+        teaching SEC504: Hacker Tools, Techniques, and Incident Handling.
+      </p>
+      <p>
+        I started in 2009 at a Norwegian ISP in development and IT operations,
+        led penetration testing and incident response at Netsecurity, and
+        founded River Security in 2020. That path from builder to operator to
+        leader shapes how I hack and how I teach. Based in Bergen, Norway.
+      </p>
+    </div>
+
+    <p class="term-line"><span class="prompt">chris@riversec</span>:<span class="path">~</span>$ ls certifications/</p>
+    <p class="term-out">{certs.join('  ')}</p>
+
+    <p class="term-line"><span class="prompt">chris@riversec</span>:<span class="path">~</span>$ cat motto.txt</p>
+    <p class="term-out">"Hack for good, not evil or greed. Seek to understand, not just to solve."</p>
+
+    <p class="term-line"><span class="prompt">chris@riversec</span>:<span class="path">~</span>$ ls ~/</p>
+    <p class="term-out">
+      <a href="/posts/">posts/</a>&nbsp;&nbsp;<a href="/talks/">talks/</a>&nbsp;&nbsp;<a
+        href="/videos/">videos/</a>&nbsp;&nbsp;<a href="/now/">now/</a>&nbsp;&nbsp;<a
+        href="/contact/">contact/</a>
+    </p>
+
+    <p class="term-line"><span class="prompt">chris@riversec</span>:<span class="path">~</span>$ <span class="cursor">█</span></p>
+  </section>
+</Base>

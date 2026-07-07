@@ -15,6 +15,8 @@ const groups = [
   { type: 'article', heading: 'Articles & press' },
   { type: 'video', heading: 'Video series' },
 ] as const;
+
+const present = groups.filter((g) => talks.some((t) => t.data.type === g.type));
 ---
 
 <Base
@@ -22,17 +24,32 @@ const groups = [
   description="Conference talks, podcasts, webcasts, TV appearances, and articles featuring Chris Dale."
 >
   <h1 class="rule-heading">Talks &amp; media</h1>
+
+  <div class="chips" data-filter="talks">
+    <button type="button" class="chip is-active" data-value="all">all</button>
+    {present.map((g) => <button type="button" class="chip" data-value={g.type}>{g.heading.toLowerCase()}</button>)}
+  </div>
+
   {
-    groups.map((group) => {
-      const items = talks.filter((t) => t.data.type === group.type);
-      return (
-        items.length > 0 && (
-          <>
-            <h2 class="rule-heading">{group.heading}</h2>
-            <TalkList talks={items} />
-          </>
-        )
-      );
-    })
+    present.map((group) => (
+      <section data-type={group.type}>
+        <h2 class="rule-heading">{group.heading}</h2>
+        <TalkList talks={talks.filter((t) => t.data.type === group.type)} />
+      </section>
+    ))
   }
+
+  <script>
+    const bar = document.querySelector('[data-filter="talks"]');
+    const sections = document.querySelectorAll('section[data-type]');
+    bar?.addEventListener('click', (e) => {
+      const btn = (e.target as HTMLElement).closest('.chip');
+      if (!btn) return;
+      const value = btn.getAttribute('data-value');
+      bar.querySelectorAll('.chip').forEach((c) => c.classList.toggle('is-active', c === btn));
+      sections.forEach((s) => {
+        (s as HTMLElement).hidden = value !== 'all' && s.getAttribute('data-type') !== value;
+      });
+    });
+  </script>
 </Base>

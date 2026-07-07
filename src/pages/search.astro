@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Search" description="Full-text search across posts, talks, and videos.">
+  <h1 class="rule-heading">Search</h1>
+  <link rel="stylesheet" href="/pagefind/pagefind-ui.css" is:inline />
+  <div id="search"></div>
+  <script src="/pagefind/pagefind-ui.js" is:inline></script>
+  <script is:inline>
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.PagefindUI) {
+        new window.PagefindUI({ element: '#search', showSubResults: true, showImages: false });
+      }
+    });
+  </script>
+</Base>

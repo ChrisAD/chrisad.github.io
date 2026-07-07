@@ -11,20 +11,28 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await render(post);
+const { Content, remarkPluginFrontmatter } = await render(post);
 
 const fmt = (d: Date) => d.toISOString().slice(0, 10);
+const minutesRead = remarkPluginFrontmatter.minutesRead;
 ---
 
-<Base title={post.data.title} description={post.data.description}>
+<Base
+  title={post.data.title}
+  description={post.data.description}
+  ogImage={`/og/${post.id}.png`}
+>
   <header class="post-header">
     <h1>{post.data.title}</h1>
     <p class="post-meta">
       <time datetime={post.data.date.toISOString()}>{fmt(post.data.date)}</time>
+      {minutesRead && <> · {minutesRead}</>}
       {post.data.tags.length > 0 && (
         <>
-          &nbsp;·&nbsp;
-          {post.data.tags.map((tag) => <span class="tag">#{tag}&nbsp;</span>)}
+          {' · '}
+          {post.data.tags.map((tag) => (
+            <a class="tag" href={`/tags/${tag}/`}>#{tag}</a>
+          ))}
         </>
       )}
     </p>
