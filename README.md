@@ -27,7 +27,7 @@ Built with [Astro](https://astro.build), deployed to GitHub Pages via GitHub Act
    git add . && git commit -m "post: my post" && git push
    ```
 
-3. Live on https://chrisad.github.io in about a minute. The filename becomes the URL: `my-post.md` → `/posts/my-post/`.
+3. Live on https://chrisdale.no in about a minute. The filename becomes the URL: `my-post.md` → `/posts/my-post/`.
 
 Images: drop them in `public/img/` and reference as `![alt](/img/name.png)`.
 
