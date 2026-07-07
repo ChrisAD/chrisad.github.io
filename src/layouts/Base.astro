@@ -1,0 +1,140 @@
+---
+import { getCollection } from 'astro:content';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const SITE_TITLE = 'Chris Dale';
+const SITE_DESCRIPTION =
+  'Offensive security, incident response, and attack surface management. Co-founder & Chief Hacking Officer at River Security, SANS Principal Instructor.';
+
+const { title, description = SITE_DESCRIPTION } = Astro.props;
+const pageTitle = title ? `${title} · chrisdale.no` : `${SITE_TITLE} · chrisdale.no`;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+
+const nav = [
+  { href: '/posts/', label: 'posts' },
+  { href: '/talks/', label: 'talks' },
+  { href: '/videos/', label: 'videos' },
+  { href: '/contact/', label: 'contact' },
+];
+const current = Astro.url.pathname;
+
+const randomVideos = (await getCollection('videos')).map((v) => ({
+  id: v.data.youtubeId,
+  title: v.data.title,
+}));
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href="/rss.xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="twitter:card" content="summary" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/"><span class="block">█</span> chrisdale.no</a>
+        <nav class="site-nav">
+          {
+            nav.map((item) => (
+              <a href={item.href} aria-current={current.startsWith(item.href) ? 'page' : undefined}>
+                {item.label}
+              </a>
+            ))
+          }
+          <button type="button" id="random-video-btn" class="random-btn">🎲 random Chris</button>
+        </nav>
+      </div>
+    </header>
+
+    <div id="video-modal" class="video-modal" hidden>
+      <div class="video-modal-backdrop" data-close></div>
+      <div class="video-modal-inner" role="dialog" aria-modal="true" aria-label="Random video">
+        <div class="video-modal-bar">
+          <span id="video-modal-title" class="video-modal-title"></span>
+          <span class="video-modal-actions">
+            <button type="button" id="random-video-again" class="random-btn">🎲 another</button>
+            <button type="button" class="random-btn" data-close aria-label="Close">✕</button>
+          </span>
+        </div>
+        <div class="video-embed" id="video-modal-frame"></div>
+      </div>
+    </div>
+
+    <script type="application/json" id="random-video-data" set:html={JSON.stringify(randomVideos)} />
+
+    <main class="wrap">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>© {new Date().getFullYear()} Chris Dale</span>
+        <span>
+          <a href="/rss.xml">rss</a> · <a href="https://riversecurity.eu/">river security</a>
+        </span>
+      </div>
+    </footer>
+
+    <script>
+      const videos = JSON.parse(
+        document.getElementById('random-video-data')?.textContent || '[]'
+      );
+      const modal = document.getElementById('video-modal');
+      const frame = document.getElementById('video-modal-frame');
+      const titleEl = document.getElementById('video-modal-title');
+      let last = -1;
+
+      function pick() {
+        if (videos.length === 0) return;
+        let i = Math.floor(Math.random() * videos.length);
+        if (videos.length > 1 && i === last) i = (i + 1) % videos.length;
+        last = i;
+        const v = videos[i];
+        titleEl.textContent = v.title;
+        // click is a user gesture, so autoplay with sound is allowed
+        frame.innerHTML =
+          '<iframe src="https://www.youtube-nocookie.com/embed/' +
+          encodeURIComponent(v.id) +
+          '?autoplay=1&rel=0" title="' +
+          v.title.replace(/"/g, '&quot;') +
+          '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+      }
+
+      function open() {
+        pick();
+        modal.hidden = false;
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        modal.hidden = true;
+        frame.innerHTML = '';
+        document.body.style.overflow = '';
+      }
+
+      document.getElementById('random-video-btn')?.addEventListener('click', open);
+      document.getElementById('random-video-again')?.addEventListener('click', pick);
+      modal?.querySelectorAll('[data-close]').forEach((el) => el.addEventListener('click', close));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !modal.hidden) close();
+      });
+    </script>
+  </body>
+</html>

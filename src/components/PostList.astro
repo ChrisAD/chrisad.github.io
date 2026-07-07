@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<'posts'>[];
+  showDescriptions?: boolean;
+}
+
+const { posts, showDescriptions = false } = Astro.props;
+
+const fmt = (d: Date) => d.toISOString().slice(0, 10);
+---
+
+<ul class="item-list">
+  {
+    posts.map((post) => (
+      <li>
+        <time datetime={post.data.date.toISOString()}>{fmt(post.data.date)}</time>
+        <span class="title">
+          <a href={`/posts/${post.id}/`}>{post.data.title}</a>
+          {post.data.featured && <span class="featured-flag"> ★</span>}
+          {showDescriptions && <span class="meta">{post.data.description}</span>}
+        </span>
+      </li>
+    ))
+  }
+</ul>

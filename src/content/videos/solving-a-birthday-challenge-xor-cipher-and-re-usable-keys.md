@@ -1,0 +1,9 @@
+---
+title: "Solving a Birthday Challenge - XOR Cipher and Re-usable keys"
+date: 2025-09-20
+youtubeId: _dvmHmJagYA
+---
+
+In this video, I take you through the journey of solving their custom-made brain teaser, step by step. From cryptography basics to creative problem solving, you’ll see how I untangled the layers and cracked the final solution.
+
+#CTF #CyberSecurity #PuzzleChallenge #XOR

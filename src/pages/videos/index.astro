@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+
+const videos = (await getCollection('videos')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const years = [...new Set(videos.map((v) => v.data.date.getFullYear()))];
+
+const fmt = (d: Date) => d.toISOString().slice(0, 10);
+---
+
+<Base
+  title="Videos"
+  description="Video archive: web hacking tutorials, OverTheWire Natas walkthroughs, tooling tips, and more from Chris Dale's YouTube channel."
+>
+  <h1 class="rule-heading">Videos</h1>
+  <p>
+    Tutorials and walkthroughs from <a href="https://www.youtube.com/c/chrisdale">my YouTube channel</a>:
+    the full
+    <a href="https://www.youtube.com/watch?v=FLUMQfOD4Lw&list=PLag7W-lJE2Aw8hzezQl17ZlE6CfNS3nYu">OverTheWire Natas web security series</a>,
+    the <a href="https://www.youtube.com/playlist?list=PLag7W-lJE2Aw4m1754iJd3tQlgnr4eAeQ">bookshelf reviews</a>,
+    Burp Suite tips, PowerShell, penetration test methodology, and more.
+  </p>
+  {
+    years.map((year) => (
+      <>
+        <h2 class="rule-heading">{year}</h2>
+        <ul class="item-list">
+          {videos
+            .filter((v) => v.data.date.getFullYear() === year)
+            .map((video) => (
+              <li>
+                <time datetime={video.data.date.toISOString()}>{fmt(video.data.date)}</time>
+                <span class="title">
+                  <a href={`/videos/${video.id}/`}>{video.data.title}</a>
+                </span>
+              </li>
+            ))}
+        </ul>
+      </>
+    ))
+  }
+</Base>

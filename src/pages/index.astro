@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PostList from '../components/PostList.astro';
+import TalkList from '../components/TalkList.astro';
+
+const posts = (
+  await getCollection('posts', ({ data }) => import.meta.env.DEV || !data.draft)
+).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const featured = posts.filter((p) => p.data.featured);
+const latest = [...featured, ...posts.filter((p) => !p.data.featured)].slice(0, 6);
+
+const talks = (await getCollection('talks'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
+
+const videos = (await getCollection('videos'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 4);
+
+const fmt = (d: Date) => d.toISOString().slice(0, 10);
+---
+
+<Base>
+  <section class="hero">
+    <h1>Chris Dale</h1>
+    <p>Co-founder &amp; Chief Hacking Officer @ River Security</p>
+    <p>SANS Principal Instructor · SEC504</p>
+    <p>Continuous penetration testing · attack surface management · incident response</p>
+    <p class="motto">"Hack for good, not evil or greed. Seek to understand, not just to solve."</p>
+  </section>
+
+  <h2 class="rule-heading">Latest posts</h2>
+  <PostList posts={latest} showDescriptions />
+  <p class="more-link"><a href="/posts/">all posts →</a></p>
+
+  <h2 class="rule-heading">Talks &amp; media</h2>
+  <TalkList talks={talks} />
+  <p class="more-link"><a href="/talks/">all talks →</a></p>
+
+  <h2 class="rule-heading">Videos</h2>
+  <ul class="item-list">
+    {
+      videos.map((video) => (
+        <li>
+          <time datetime={video.data.date.toISOString()}>{fmt(video.data.date)}</time>
+          <span class="title">
+            <a href={`/videos/${video.id}/`}>{video.data.title}</a>
+          </span>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="more-link"><a href="/videos/">all videos →</a></p>
+</Base>

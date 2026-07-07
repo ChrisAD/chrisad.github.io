@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import TalkList from '../components/TalkList.astro';
+
+const talks = (await getCollection('talks')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const groups = [
+  { type: 'talk', heading: 'Talks & presentations' },
+  { type: 'podcast', heading: 'Podcasts' },
+  { type: 'webinar', heading: 'Webcasts' },
+  { type: 'tv', heading: 'TV appearances' },
+  { type: 'article', heading: 'Articles & press' },
+  { type: 'video', heading: 'Video series' },
+] as const;
+---
+
+<Base
+  title="Talks & media"
+  description="Conference talks, podcasts, webcasts, TV appearances, and articles featuring Chris Dale."
+>
+  <h1 class="rule-heading">Talks &amp; media</h1>
+  {
+    groups.map((group) => {
+      const items = talks.filter((t) => t.data.type === group.type);
+      return (
+        items.length > 0 && (
+          <>
+            <h2 class="rule-heading">{group.heading}</h2>
+            <TalkList talks={items} />
+          </>
+        )
+      );
+    })
+  }
+</Base>

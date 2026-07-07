@@ -1,0 +1,36 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  talks: CollectionEntry<'talks'>[];
+}
+
+const { talks } = Astro.props;
+
+const fmt = new Intl.DateTimeFormat('en', { month: 'short', year: 'numeric' });
+---
+
+<ul class="item-list">
+  {
+    talks.map((talk) => (
+      <li>
+        <time datetime={talk.data.date.toISOString()}>{fmt.format(talk.data.date)}</time>
+        <span class="kind">{talk.data.type}</span>
+        <span class="title">
+          {talk.data.url ? <a href={talk.data.url}>{talk.data.title}</a> : talk.data.title}
+          {talk.data.slides && (
+            <a class="slides-link" href={talk.data.slides}>
+              [slides]
+            </a>
+          )}
+          {talk.data.spotify && (
+            <a class="slides-link" href={talk.data.spotify}>
+              [spotify]
+            </a>
+          )}
+          <span class="meta">{talk.data.event}</span>
+        </span>
+      </li>
+    ))
+  }
+</ul>
