@@ -3,7 +3,7 @@ title: "Coaching Singapore's HTX teams to top-5 finishes at DEF CON 32"
 description: "What it actually means to coach a CTF team: coordination, challenge triage, and knowing when to sit down and grind the hard ones together."
 date: 2026-07-07
 tags: [ctf, coaching, sans]
-featured: true
+featured: false
 ---
 
 In 2024 I had the privilege of coaching teams from Singapore's [Home Team Science and Technology Agency (HTX)](https://www.htx.gov.sg/) as they prepared for, and competed at, DEF CON 32 in Las Vegas, the world's largest hacking conference.

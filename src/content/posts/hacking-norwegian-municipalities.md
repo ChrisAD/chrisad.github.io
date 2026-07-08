@@ -3,7 +3,7 @@ title: "I was challenged to hack Norwegian municipalities, and I hit the jackpot
 description: "Given a challenge to hack Norway's municipalities, I went broad: all 357 at once. The payoff was a third-party AWS-hosted CMS behind 101 webservers, and a lesson about who sets your pentest scope."
 date: 2026-07-01
 tags: [recon, asm]
-featured: true
+featured: false
 ---
 
 I hit the jackpot. Recently I got to show Norwegian municipalities the importance of doing broad reconnaissance and continuous penetration testing.

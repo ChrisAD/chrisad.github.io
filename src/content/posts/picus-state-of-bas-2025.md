@@ -3,7 +3,7 @@ title: "Speaking at Picus Security's State of BAS 2025 summit"
 description: "I joined Picus Security's State of BAS 2025 summit on redefining attack simulation through AI, covering BAS, continuous validation, and automated pentesting."
 date: 2025-09-23
 tags: [bas, ai, talk]
-featured: true
+featured: false
 ---
 
 I supported Picus Security on their **State of BAS 2025** summit, a virtual event on redefining attack simulation through AI. The announcement, which lists the speaker lineup, is here: [Picus Security Hosts State of BAS 2025 to Redefine Attack Simulation Through AI](https://www.globenewswire.com/news-release/2025/09/23/3154808/0/en/Picus-Security-Hosts-State-of-BAS-2025-to-Redefine-Attack-Simulation-Through-AI.html).

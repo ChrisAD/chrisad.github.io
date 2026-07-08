@@ -3,7 +3,7 @@ title: "Cybersecurity 101 with W3Schools: what you actually need"
 description: "I sat down with W3Schools, one of the largest websites in the world, to cover the fundamentals of cybersecurity: the CIA triad, what hacking really means, the full attack surface, and where to start learning safely."
 date: 2026-02-27
 tags: [awareness, education]
-featured: true
+featured: false
 ---
 
 I sat down with [W3Schools](https://www.w3schools.com/), one of the largest websites in the world, to talk through the fundamentals of cybersecurity. The write-up of our conversation is on LinkedIn: [Cybersecurity 101: A Hacker Explains What You Actually Need](https://www.linkedin.com/pulse/cybersecurity-101-hacker-explains-what-you-actually-need-l8gve/).
@@ -14,9 +14,9 @@ Here is the short version of what we covered.
 
 Three foundational pillars underpin almost everything in security:
 
-- **Confidentiality** — who can see the data
-- **Integrity** — whether the data can be altered without detection
-- **Availability** — whether the systems and data are there when you need them
+- **Confidentiality**: who can see the data
+- **Integrity**: whether the data can be altered without detection
+- **Availability**: whether the systems and data are there when you need them
 
 When these fail, the consequences are concrete: identity theft, financial fraud, disrupted infrastructure, and eroded trust in an organization.
 
@@ -28,10 +28,10 @@ Hacking is not inherently criminal. At its core it is about exploring systems to
 
 Security is not just about application vulnerabilities. It spans four dimensions:
 
-- **People** — social engineering, weak or reused passwords
-- **Processes** — risky workflows, like routinely opening attachments
-- **Technology** — the actual application and infrastructure vulnerabilities
-- **Supply chain** — the third parties you depend on
+- **People**: social engineering, weak or reused passwords
+- **Processes**: risky workflows, like routinely opening attachments
+- **Technology**: the actual application and infrastructure vulnerabilities
+- **Supply chain**: the third parties you depend on
 
 Attackers do not care which box a weakness sits in. They take the easiest path across all four.
 

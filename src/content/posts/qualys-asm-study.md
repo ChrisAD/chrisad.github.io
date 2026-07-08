@@ -3,7 +3,7 @@ title: "My Qualys attack surface management study, covered by SecurityBrief"
 description: "The Qualys-sponsored ASM research I authored surveyed 200+ security professionals. SecurityBrief Australia covered the findings and the case for unified attack surface management."
 date: 2026-06-23
 tags: [asm, research]
-featured: true
+featured: false
 ---
 
 I authored a Qualys-sponsored study on attack surface management, surveying more than 200 cybersecurity professionals about how they actually run ASM today. SecurityBrief Australia has now covered it in [Qualys study calls for unified attack surface management](https://securitybrief.com.au/story/qualys-study-calls-for-unified-attack-surface-management).

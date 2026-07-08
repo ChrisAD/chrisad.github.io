@@ -3,7 +3,7 @@ title: "Responsible disclosure shouldn't be this hard"
 description: "I found open cloud buckets with 10,000+ PII documents and spent months trying to get someone, anyone, to act. It took going to NRK before the data was finally secured."
 date: 2025-10-11
 tags: [disclosure, cloud, privacy]
-featured: true
+featured: false
 ---
 
 Responsible disclosure is often a thankless job.
