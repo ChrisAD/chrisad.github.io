@@ -9,6 +9,8 @@ tags: [xss, azure, cloud, web]
 
 Earlier in 2016 I found an interesting attack vector targeting websites deployed through Azure web apps, Microsoft's cloud platform. It let an attacker who had already compromised a site go on to attack any administrator of the SaaS platform hosting it. The issue has since been patched, so we can talk about it.
 
+A note on the name. I called this a sandbox escape at the time, and the label stuck, but it is more precise to call it a trust-boundary escape. No VM or runtime sandbox is broken here. What breaks is the boundary between a tenant and the operator running the platform: attacker-controlled data from a compromised site jumps into the authenticated browser of the SaaS administrator. That is the interesting part, and it is the part that took a while to land with Microsoft. I wrote a follow-up about that conversation in [Revisiting the Azure Kudu XSS: what Microsoft said](/posts/revisiting-the-azure-kudu-xss/).
+
 ### Introduction
 
 Cloud providers deserve extra scrutiny because of what sits behind them: sandbox escapes and attacks against shared infrastructure. It is trivial today for a company to tag itself as "cloud", but for the most part using the cloud is just using someone else's server. Much of the responsibility stays with us, the client, to ask the right questions about maturity, security, and operations before signing. The Cloud Security Alliance's Consensus Assessments Initiative Questionnaire and Sintef's Cloud Security Requirements are both useful starting points.
