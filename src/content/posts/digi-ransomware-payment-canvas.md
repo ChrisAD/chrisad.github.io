@@ -7,9 +7,9 @@ tags: [ransomware, incident-response]
 
 Digi.no featured my reaction to the news that the owner of Canvas reached an agreement with the group behind the data breach affecting universities. You can read their piece (in Norwegian) here: [Sikkerhetseksperter advarer etter Canvas-betaling](https://www.digi.no/artikler/sikkerhetseksperter-advarer-etter-canvas-betaling/571963).
 
-My position on paying is not complicated. Every payment is a signal to the market that this business model works, and that signal does not stay contained to one victim. It funds the next campaign, sharpens the tooling, and tells other groups that organizations in your sector will pay. In other words, paying to make one incident go away helps attract the next one, to you and to everyone around you.
+My position on paying is not complicated. Criminals have for a long time learned that this business model works, and sometimes companies have to pay to keep themselves alive; it is a business decision, and it sucks. What are you going to do if your backups are deleted, and everything is gone..? Go bankrupt, or consider paying? 
 
-I understand why it happens. When systems are down, data is gone, and the pressure is real, a payment can look like the fastest way out. But it comes with no guarantees. You are trusting criminals to delete what they stole and to hand over working keys, and you are now a known payer. The money also rarely buys back trust, disclosure obligations, or the time spent rebuilding.
+In terms of paying, you never pay without first seeing proof of life / recovery. That is up to the criminals to prove. Once you see that you can get your files back, payment becomes and option and negotiations can commence. The website https://ransomch.at/ has information about such negotiations. 
 
 The uncomfortable truth is that the decision is usually made long before the incident, in whether you invested in the things that make paying unnecessary:
 
